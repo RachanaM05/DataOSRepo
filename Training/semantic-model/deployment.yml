@@ -15,8 +15,8 @@ lens:
     # name: miniature
     name: postgresdepotmr
   repo:
-    url: https://github.com/ramesha-web/product-affinity-demos/
-    lensBaseDir: product-affinity-training/build/semantic-model/model
+    url: https://github.com/RachanaM05/DataOSRepo/tree/main/Training/
+    lensBaseDir: Training/semantic-model/model/
     syncFlags:
       - --ref=main
 
