@@ -1,0 +1,56 @@
+# Important: Replace 'abc' with your initials to personalize and distinguish the resource you’ve created.
+name: soda-product-quality-mr
+version: v1
+type: workflow
+tags:
+  - workflow
+  - soda-checks
+description: Applying quality checks for the product data
+workspace: workspacemr      # Provide your workspace name
+workflow:
+  dag:
+    - name: soda-product-quality
+      spec:
+        stack: soda+python:1.0
+        compute: runnable-default
+        resources:
+          requests:
+            cpu: 1000m
+            memory: 250Mi
+          limits:
+            cpu: 1000m
+            memory: 250Mi
+        logLevel: INFO
+        stackSpec:
+          inputs:
+            - dataset: dataos://postgresdepotmr:public/product_data
+              options:
+                engine: minerva
+                clusterName: miniature
+              profile:
+                columns:
+                  - include *
+              checks:
+                - schema:
+                    name: Data type of price should be double
+                    fail:
+                      when wrong column type:
+                        price: double
+                    attributes:
+                      category: Schema
+                - invalid_count(customer_id) = 1:
+                    name: Customer ID should not be null
+                    attributes:
+                      category: Validity
+                - missing_count(product_id) = 0:
+                    name: Product ID should not be zero
+                    attributes:
+                      category: Completeness
+                - duplicate_count(product_id) = 0:
+                    name: Product ID should not be duplicated
+                    attributes:
+                      category: Uniqueness
+                - avg_length(product_name) > 4:
+                    name: Average length of product name should be more than 4
+                    attributes:
+                      category: Accuracy

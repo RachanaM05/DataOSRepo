@@ -1,0 +1,86 @@
+name: retaildata-spec-mr
+version: v1beta
+entity: product
+type: data
+tags:
+  - DPDomain.Marketing
+  # - DPUsecase.Customer Segmentation
+  # - DPUsecase.Product Recommendation
+  - DPTier.Source Aligned
+description: Source aligned data product for example usecase
+# refs:
+#   - title: 'Workspace Info'
+#     href: https://dataos.info/interfaces/cli/command_reference/#workspace
+ 
+#   - title: 'Product Affinity Analysis'
+#     href: https://app.appsmith.com/app/product-affinity-demo/page1-67777255cf8fcd425e4a018f
+v1beta:
+  data:
+    meta:
+      title: Example Usecase Data
+      # sourceCodeUrl: https://bitbucket.org/tmdc/product-affinity-practice/src/main/
+      # trackerUrl: https://rubikai.atlassian.net/browse/DPRB-65
+ 
+    collaborators:
+      - name: rachanamedishetti
+        description: owner
+      # - name: deepakjaiswal
+      #   description: developer
+      # - name: nandapage
+      #   description: consumer
+      # - name: aayushisolanki
+      #   description: consumer
+    resource:
+      refType: dataos
+      ref: bundle:v1beta:retaildata-bundle-mr
+    # inputs:
+    #   - refType: dataos
+    #     ref: dataos://thirdparty01:onboarding/customer.csv
+ 
+    #   - refType: dataos
+    #     ref: dataos://thirdparty01:onboarding/purchase.csv
+ 
+    #   - refType: dataos
+    #     ref: dataos://thirdparty01:onboarding/product.csv
+    
+    inputs:
+      - refType: depot
+        ref: dataos://postgresdepotmr:public/customer_data_mr
+ 
+      - refType: depot
+        ref: dataos://postgresdepotmr:public/purchase_data
+ 
+      - refType: depot
+        ref: dataos://postgresdepotmr:public/product_data
+    
+    outputs:
+      - refType: depot
+        ref: dataos://postgresdepotmr:public/customer_data_mr
+ 
+      - refType: depot
+        ref: dataos://postgresdepotmr:public/purchase_data
+ 
+      - refType: depot
+        ref: dataos://postgresdepotmr:public/product_data
+ 
+    # outputs:
+    #   - refType: dataos
+    #     ref: dataset:lakehouse:customer_relationship_management:product_affinity_matrix
+ 
+    #   - refType: dataos
+    #     ref: dataset:lakehouse:customer_relationship_management:cross_sell_recommendations
+ 
+    # ports:
+    #   lens:
+    #     ref: lens:v1alpha:productaffinity:public
+    #     refType: dataos
+ 
+    #   talos:
+    #     - ref: service:v1:product-affinity-api:public
+    #       refType: dataos
+ 
+ 
+      
+ 
+ 
+ 

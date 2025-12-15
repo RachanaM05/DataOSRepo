@@ -1,0 +1,45 @@
+name: retaildata-bundle-mr
+version: v1beta
+type: bundle
+description: Source-aligned Data Product Bundle
+layer: user
+bundle:
+  resources:
+    - id: quality_check_customer
+      file: /Users/rachanamedishetti/Documents/Training/quality_check.yml    # Example path - update as needed
+      workspace: workspacemr
+
+    # - id: quality_product
+    #   file: build/slo/input/product.yml
+    #   workspace: public
+
+    # - id: quality_purchase
+    #   file: build/slo/input/purchase.yml
+    #   workspace: <workspace_name>
+
+    # - id: quality_monitor
+    #   file: 
+    #   workspace: <workspace_name>
+
+    # - id: workflow_monitor
+    #   file: 
+    #   workspace: <workspace_name>
+
+    # - id: quality_pager
+    #   file: 
+    #   workspace: <workspace_name>
+    #   dependencies:
+    #     - quality_monitor
+
+    # - id: workflow_pager
+    #   file: 
+    #   workspace: <workspace_name>
+    #   dependencies:
+    #     - workflow_monitor
+
+    # Add other resources you have created
+    # - id: filter_policy
+    #   file: policy/filter-policy.yml
+    #   workspace: public
+    #   dependencies:
+    #     - api # Provide id

@@ -1,0 +1,13 @@
+# Important: Replace 'abc' with your initials to personalize and distinguish the resource you’ve created.
+version: v1
+name: wf-postgres-scan-mr
+type: workflow
+workflow:
+  dag:
+    - name: postgres-depot
+      description: Scans schema tables in Postgres
+      spec:
+        stack: scanner:2.0
+        compute: runnable-default
+        stackSpec:
+          depot: dataos://postgresdepotmr       # name of the Depot
