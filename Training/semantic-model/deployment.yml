@@ -16,7 +16,7 @@ lens:
     name: postgresdepotmr
   repo:
     url: https://github.com/RachanaM05/DataOSRepo/
-    lensBaseDir: Training/semantic-model/model/
+    lensBaseDir: DataOSRepo/Training/semantic-model/model/
     syncFlags:
       - --ref=main
 
